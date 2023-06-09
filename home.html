@@ -446,6 +446,20 @@
             </div>
         </section>
     </div>
+
+    <script>
+        const category_bar = document.querySelector(".category_bar")
+        category_bar.addEventListener("mousedown", () => {
+            const mousemove = (e) => {
+                const { movementX } = e
+                category_bar.scrollLeft -= movementX
+            }
+            category_bar.addEventListener("mousemove", mousemove)
+            category_bar.addEventListener("mouseup", () => {
+                category_bar.removeEventListener("mousemove", mousemove)
+            }, { once: true })
+        })
+    </script>
 </body>
 
 </html>
